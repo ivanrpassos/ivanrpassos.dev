@@ -84,7 +84,7 @@ export const Home = () => {
         <footer className="w-full flex justify-center pb-4">
           <div className="flex items-center justify-center gap-5 sm:gap-8 text-[0.75rem] sm:text-xs md:text-sm font-medium text-neutral-500">
             <a
-              href="https://linkedin.com/in/ivanrpassos"
+              href="https://linkedin.com/in/ivanrpassos-"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors duration-300 ease-in-out"
