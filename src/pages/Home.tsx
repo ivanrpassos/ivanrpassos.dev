@@ -168,11 +168,11 @@ export const Home = () => {
                     hover:underline
                   "
                 >
-                  Digisource©
+                  Digisource
                 </a>{" "}
                 e a{" "}
                 <a
-                  href="https://SEU-DOMINIO-DA-ZEEVA.com"
+                  href="https://zeeva.studio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
@@ -185,9 +185,26 @@ export const Home = () => {
                     hover:underline
                   "
                 >
-                  ZEEVA™
+                  ZEEVA
                 </a>{" "}
-                — e exploro fotografia através da Suaaave.
+                — e exploro fotografia através da{" "}
+                <a
+                  href="https://suaaave.com/@ivanrpassos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    text-neutral-400
+                    underline-offset-4
+                    transition-colors
+                    duration-300
+                    ease-in-out
+                    hover:text-[#FE572A]
+                    hover:underline
+                  "
+                >
+                  Suaaave
+                </a>
+                .
               </span>
             </h1>
 
@@ -203,7 +220,7 @@ export const Home = () => {
               "
             >
               <a
-                href="https://digisource.io"
+                href="https://tally.so/r/2EGYpp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -220,11 +237,11 @@ export const Home = () => {
                   hover:brightness-75
                 "
               >
-                Conhecer a Digisource
+                Entrar em contato
               </a>
 
               <a
-                href="https://tally.so/r/2EGYpp"
+                href="https://digisource.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -237,7 +254,7 @@ export const Home = () => {
                   hover:text-[#FE572A]
                 "
               >
-                Entrar em contato
+                Conhecer a Digisource
               </a>
             </div>
           </div>
@@ -293,7 +310,7 @@ export const Home = () => {
                 hover:text-[#FE572A]
               "
             >
-              Behance
+              Bēhance
             </a>
 
             <a
