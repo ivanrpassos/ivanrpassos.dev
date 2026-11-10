@@ -1,75 +1,46 @@
-# React + TypeScript + Vite
+# Ivan Passos — Links
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Página pessoal de links feita com React, TypeScript e Vite. Projeto exclusivamente front-end.
 
-Currently, two official plugins are available:
+## Desenvolvimento
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+bun install
+bun run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Verificação e produção
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+bun run lint
+bun run build
+bun run preview
 ```
+
+O build estático é gerado em `dist/`.
+
+## Organização
+
+- `src/App.tsx`: composição e seções da página.
+- `src/data/profile.ts`: redes sociais, contagens e plataformas utilizadas.
+- `src/components/link-card.tsx`: cartões e cabeçalhos reutilizáveis.
+- `src/components/theme-control.tsx`: temas claro, escuro e automático, com preferência local.
+- `src/components/magicui/flickering-grid.tsx`: fundo animado adaptado do Flickering Grid da Magic UI. Respeita movimento reduzido e pausa quando a aba está oculta.
+- `src/App.css` e `src/index.css`: layout, paleta Neutral e estados de interação.
+- `src/assets/avatar.jpg`: foto otimizada para o perfil.
+- `public/favicon.svg`: foto circular incorporada no favicon.
+
+Todos os ícones são da família Remix Icon.
+
+## Conteúdo e integrações
+
+As contagens de seguidores são ilustrativas. A seção do YouTube está reservada, sem vídeo. As áreas de imagens do Instagram permanecem como espaços reservados.
+
+Os formulários de contato e newsletter ainda não enviam nem armazenam dados. O contato disponível é o link externo do Tally. Não há backend, autenticação ou integração automática com redes sociais.
+
+Para trocar a foto, utilize uma versão quadrada de aproximadamente 192 × 192 px no perfil e atualize também a imagem incorporada no favicon. O original não é necessário para publicar o site.
+
+## Referências
+
+- Estrutura visual: https://linx.framer.website/
+- Fundo animado: https://magicui.design/docs/components/flickering-grid
