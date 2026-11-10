@@ -18,8 +18,10 @@ bun run build
 ```
 
 Use `bun run format` para formatar. A saída estática fica em `dist/`.
-Na hospedagem, configure fallback de rotas para `index.html`, incluindo URLs
-como `/works/porto-seguros`.
+O `vercel.json` encaminha as rotas para `index.html` na Vercel, permitindo
+abrir ou atualizar diretamente `/links`, `/works`, `/services`, `/products`
+e `/works/porto-seguros`. A configuração entra em vigor no próximo deploy.
+Em outras hospedagens, configure o mesmo fallback de rotas.
 
 ## Estrutura
 
