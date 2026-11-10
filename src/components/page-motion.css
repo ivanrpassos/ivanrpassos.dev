@@ -1,0 +1,8 @@
+.reveal-pending {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending {
+    opacity: 1;
+  }
+}

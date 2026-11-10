@@ -1,77 +1,60 @@
-# React + TypeScript + Vite
+# Ivan Passos — Portfólio e links
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site em React, TypeScript e Vite. As páginas são carregadas sob demanda.
 
-Currently, two official plugins are available:
+## Desenvolvimento
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+bun install
+bun run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Verificação
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+bun run format:check
+bun run lint
+bun run build
 ```
+
+Use `bun run format` para formatar. A saída estática fica em `dist/`.
+Na hospedagem, configure fallback de rotas para `index.html`, incluindo URLs
+como `/works/porto-seguros`.
+
+## Estrutura
+
+- `src/route.tsx`: seleção e carregamento das páginas.
+- `src/Home.tsx`: página inicial.
+- `src/Pages.tsx`: projetos, serviços e produtos.
+- `src/WorkDetail.tsx`: detalhes dos projetos.
+- `src/App.tsx`: página de links, em `/links`.
+- `src/components/site-layout.tsx`: cabeçalho, rodapé e newsletter compartilhados.
+- `src/components/work-cards.tsx`: cards reutilizáveis.
+- `src/components/ui/`: composições do shadcn/ui com Radix, adaptadas ao CSS existente.
+- `src/components/page-motion.tsx`: Lenis e reveal, com limpeza de efeitos e suporte a movimento reduzido.
+- `src/components/lenis.css`: estilos da versão 1.3.27; revisar ao atualizar Lenis.
+- `src/components/bottom-blur.tsx`: blur progressivo sem interceptar cliques.
+- `src/data/works.ts`: projetos, descrições e conteúdo demonstrativo.
+- `src/data/profile.ts`: redes sociais e ferramentas.
+
+Os temas compartilham a preferência local `theme`. Os ícones são Remix Icon.
+A foto está em `src/assets/avatar.jpg`; o favicon em `public/favicon.svg`.
+
+## Conteúdo e integrações pendentes
+
+Os nomes dos clientes foram informados pelo proprietário. Os textos dos cases
+são fictícios e estão identificados como demonstrativos; validar escopo,
+participação e resultados antes da publicação. As imagens de projetos estão
+reservadas. Os produtos ainda não têm catálogo real.
+
+Newsletter e formulário de mensagem não enviam nem armazenam dados. O contato
+funcional é o formulário externo do Tally. As contagens de seguidores em `/links`
+são ilustrativas. Não há backend ou integração automática com redes sociais.
+
+## Referências
+
+- Portfólio: https://artifact.framer.ai/
+- Links: https://linx.framer.website/
+- Componentes: https://ui.shadcn.com/
+- Rolagem: https://github.com/darkroomengineering/lenis
+- Fundo de links: https://magicui.design/docs/components/flickering-grid
