@@ -1,184 +1,580 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-}
-
-.hero {
+.profile {
   position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  width: min(480px, calc(100% - 40px));
+  margin: 80px auto;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
-
-#center {
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.avatar {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--placeholder);
+}
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin: 0 0 2px;
+}
+h2 {
+  font-size: 14px;
+  line-height: 1.16;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin: 0;
+}
+.profile-header p {
+  font-size: 14px;
+  line-height: 1.36;
+  letter-spacing: -0.4px;
+  color: var(--muted);
+  margin: 0;
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--card);
+  padding: 8px 12px;
+  border-radius: 24px;
+  font-size: 14px;
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.social-links span {
+  font-variant-numeric: tabular-nums;
+}
+.social-links svg {
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+}
+.links {
+  display: grid;
+  gap: 16px;
+  scroll-margin-top: 20px;
+}
+.feature-card {
+  height: 200px;
+  border-radius: 12px;
+  background: var(--placeholder);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+}
+.feature-caption {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
+  gap: 2px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+}
+.feature-caption > span {
+  color: var(--text);
+  opacity: 0.75;
+}
+.link-card {
+  min-height: 69px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+.link-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: grid;
   place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--muted) 8%, transparent);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
-
-#next-steps {
+.link-icon svg {
+  width: 20px;
+  height: 20px;
+}
+.link-copy {
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 1.26;
+  letter-spacing: -0.4px;
 }
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.link-copy > span {
+  color: var(--muted);
+  line-height: 1.4;
 }
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
+.content-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--border);
+  min-width: 0;
+}
+.card-heading {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  align-items: center;
+  gap: 12px;
+  min-height: 36px;
 }
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
+.video-placeholder {
   position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  margin-top: 16px;
+  background: var(--placeholder);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.software-logo {
+  background: var(--placeholder);
+}
+.instagram-card {
+  overflow: hidden;
+}
+.instagram-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.instagram-heading > svg {
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+}
+.instagram-strip {
+  display: flex;
+  gap: 12px;
+  margin: 16px -16px 0 0;
+}
+.instagram-strip span {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: var(--placeholder);
+}
+.contact-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+input,
+textarea {
   width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.4px;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--neutral-400);
+  outline-offset: 2px;
+}
+textarea {
+  height: 80px;
+  resize: vertical;
+}
+.form-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--muted) 6%, transparent);
+  color: var(--text);
+}
+.form-notice {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--muted);
+}
+.newsletter-card {
+  padding: 40px;
+  text-align: center;
+}
+.newsletter-card h2 {
+  font-size: 16px;
+}
+.newsletter-card > p {
+  margin: 10px 0 24px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+  color: var(--muted);
+}
+.newsletter-form {
+  display: flex;
+  padding: 3px;
+  gap: 4px;
+  max-width: 280px;
+  margin: auto;
+  background: color-mix(in srgb, var(--muted) 6%, transparent);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 6px 8px;
+}
+.newsletter-form button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--panel);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+}
+.newsletter-card .form-notice {
+  margin: 16px 0 0;
+}
+.software-list {
+  display: grid;
+  gap: 8px;
+  margin: 20px 0 16px;
+}
+.software-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+}
+.software-list strong {
+  font-weight: 600;
+}
+.software-category {
+  color: var(--muted);
+}
+.software-logo {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--border);
+  border: 0;
+  margin: 0 auto;
+}
+.template-footer {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--muted);
+  background: var(--panel);
+}
+.theme-control {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 24px;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  z-index: 2;
+}
+.theme-control button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  width: 32px;
+  height: 30px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+}
+.theme-control button[aria-pressed='true'] {
+  background: var(--panel);
+  color: var(--text);
+}
+.theme-control svg {
+  width: 16px;
+  height: 16px;
+}
+.template-badges {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: grid;
+  gap: 8px;
+  z-index: 2;
+}
+.template-badges a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #171717;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 1px 4px #0002;
+}
+.template-badges svg {
+  width: 16px;
+  height: 16px;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+@media (max-width: 520px) {
+  .profile {
+    margin: 40px auto 100px;
   }
+  .social-links {
+    gap: 6px;
+  }
+  .social-links a {
+    padding: 8px 10px;
+  }
+  .newsletter-card {
+    padding: 32px 20px;
+  }
+  .template-badges {
+    right: 12px;
+    bottom: 12px;
+  }
+  .theme-control {
+    left: 12px;
+    bottom: 12px;
+  }
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+/* Shared feedback for navigation and actions, without changing layout. */
+a[href],
+button,
+input,
+textarea {
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+a[href] {
+  cursor: pointer;
+}
+a svg,
+button svg,
+.link-icon,
+.software-logo {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+.software-list a {
+  border-radius: 999px;
+  padding-right: 12px;
+}
+.template-footer a {
+  border-radius: 3px;
+  text-underline-offset: 3px;
+}
+
+/* Keyboard navigation gets the same emphasis plus an explicit focus ring. */
+:is(.link-card, .social-links a, .form-button):focus-visible {
+  background: var(--hover);
+}
+.feature-card:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--muted);
+}
+.theme-control button:focus-visible {
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--muted);
+}
+.template-footer a:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.link-card, .social-links a, .form-button):hover {
+    background: var(--hover);
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 0 0 1px var(--muted),
+      0 4px 12px #0000000a;
+  }
+  .feature-card:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--placeholder) 90%, var(--text));
+    box-shadow:
+      inset 0 0 0 1px var(--muted),
+      0 4px 12px #0000000a;
+  }
+  .social-links a:hover {
+    transform: translateY(-2px);
+  }
+  .social-links a:hover svg {
+    color: var(--text);
+  }
+  .link-card:hover .link-icon {
+    transform: scale(1.06);
+  }
+  .instagram-card:hover .instagram-heading > svg {
+    color: var(--text);
+  }
+  .form-button:hover {
+    border-color: var(--muted);
+  }
+  .newsletter-form button:hover {
+    background: color-mix(in srgb, var(--text) 85%, var(--panel));
+  }
+  .theme-control button:hover {
+    color: var(--text);
+    box-shadow: inset 0 0 0 1px var(--muted);
+  }
+  .template-badges a:hover {
+    background: var(--neutral-200);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px #0003;
+  }
+  .template-footer a:hover {
+    color: var(--text);
+    text-decoration: underline;
+  }
+  .skip-link:hover {
+    background: var(--hover);
+  }
+  input:hover,
+  textarea:hover {
+    border-color: var(--muted);
+  }
+}
+:is(
+  .link-card,
+  .feature-card,
+  .social-links a,
+  .template-badges a,
+  button
+):active {
+  transform: scale(0.98);
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  a[href],
+  button,
+  input,
+  textarea,
+  a svg,
+  button svg,
+  .link-icon,
+  .software-logo {
+    transition: none;
+  }
+  :is(a[href], button, a svg, button svg, .link-icon, .software-logo):is(
+    :hover,
+    :active
+  ),
+  .software-list a:hover .software-logo,
+  .link-card:hover .link-icon,
+  .instagram-card:hover .instagram-heading > svg {
+    transform: none;
+  }
+  .skip-link:not(:focus) {
+    transform: translateY(-150%);
+  }
+}
+
+/* Subtle feedback for compact rows and the large gallery card. */
+.software-list a:focus-visible {
+  background: color-mix(in srgb, var(--muted) 10%, var(--card));
+}
+.instagram-card:focus-visible .instagram-heading h2 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .software-list a:hover {
+    background: color-mix(in srgb, var(--muted) 10%, var(--card));
+  }
+  .instagram-card:hover .instagram-heading h2 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .instagram-card:hover .link-icon {
+    background: color-mix(in srgb, var(--muted) 16%, transparent);
   }
 }
