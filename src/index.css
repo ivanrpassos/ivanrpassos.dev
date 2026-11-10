@@ -99,3 +99,10 @@ svg {
 .skip-link:focus {
   transform: translateY(0);
 }
+
+.page-loading {
+  margin: 80px auto;
+  max-width: 800px;
+  padding: 24px;
+  color: var(--muted);
+}

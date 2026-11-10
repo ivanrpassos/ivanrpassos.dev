@@ -1,10 +1,20 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
+import { PageMotion } from './components/page-motion'
 import './index.css'
-import App from './App.tsx'
+import { Route } from './route'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Suspense
+      fallback={
+        <p role="status" className="page-loading">
+          Carregando…
+        </p>
+      }
+    >
+      <Route />
+      <PageMotion />
+    </Suspense>
   </StrictMode>,
 )

@@ -1,6 +1,6 @@
-# Ivan Passos — Links
+# Ivan Passos — Portfólio e links
 
-Página pessoal de links feita com React, TypeScript e Vite. Projeto exclusivamente front-end.
+Site em React, TypeScript e Vite. As páginas são carregadas sob demanda.
 
 ## Desenvolvimento
 
@@ -9,38 +9,52 @@ bun install
 bun run dev
 ```
 
-## Verificação e produção
+## Verificação
 
 ```sh
+bun run format:check
 bun run lint
 bun run build
-bun run preview
 ```
 
-O build estático é gerado em `dist/`.
+Use `bun run format` para formatar. A saída estática fica em `dist/`.
+Na hospedagem, configure fallback de rotas para `index.html`, incluindo URLs
+como `/works/porto-seguros`.
 
-## Organização
+## Estrutura
 
-- `src/App.tsx`: composição e seções da página.
-- `src/data/profile.ts`: redes sociais, contagens e plataformas utilizadas.
-- `src/components/link-card.tsx`: cartões e cabeçalhos reutilizáveis.
-- `src/components/theme-control.tsx`: temas claro, escuro e automático, com preferência local.
-- `src/components/magicui/flickering-grid.tsx`: fundo animado adaptado do Flickering Grid da Magic UI. Respeita movimento reduzido e pausa quando a aba está oculta.
-- `src/App.css` e `src/index.css`: layout, paleta Neutral e estados de interação.
-- `src/assets/avatar.jpg`: foto otimizada para o perfil.
-- `public/favicon.svg`: foto circular incorporada no favicon.
+- `src/route.tsx`: seleção e carregamento das páginas.
+- `src/Home.tsx`: página inicial.
+- `src/Pages.tsx`: projetos, serviços e produtos.
+- `src/WorkDetail.tsx`: detalhes dos projetos.
+- `src/App.tsx`: página de links, em `/links`.
+- `src/components/site-layout.tsx`: cabeçalho, rodapé e newsletter compartilhados.
+- `src/components/work-cards.tsx`: cards reutilizáveis.
+- `src/components/ui/`: composições do shadcn/ui com Radix, adaptadas ao CSS existente.
+- `src/components/page-motion.tsx`: Lenis e reveal, com limpeza de efeitos e suporte a movimento reduzido.
+- `src/components/lenis.css`: estilos da versão 1.3.27; revisar ao atualizar Lenis.
+- `src/components/bottom-blur.tsx`: blur progressivo sem interceptar cliques.
+- `src/data/works.ts`: projetos, descrições e conteúdo demonstrativo.
+- `src/data/profile.ts`: redes sociais e ferramentas.
 
-Todos os ícones são da família Remix Icon.
+Os temas compartilham a preferência local `theme`. Os ícones são Remix Icon.
+A foto está em `src/assets/avatar.jpg`; o favicon em `public/favicon.svg`.
 
-## Conteúdo e integrações
+## Conteúdo e integrações pendentes
 
-As contagens de seguidores são ilustrativas. A seção do YouTube está reservada, sem vídeo. As áreas de imagens do Instagram permanecem como espaços reservados.
+Os nomes dos clientes foram informados pelo proprietário. Os textos dos cases
+são fictícios e estão identificados como demonstrativos; validar escopo,
+participação e resultados antes da publicação. As imagens de projetos estão
+reservadas. Os produtos ainda não têm catálogo real.
 
-Os formulários de contato e newsletter ainda não enviam nem armazenam dados. O contato disponível é o link externo do Tally. Não há backend, autenticação ou integração automática com redes sociais.
-
-Para trocar a foto, utilize uma versão quadrada de aproximadamente 192 × 192 px no perfil e atualize também a imagem incorporada no favicon. O original não é necessário para publicar o site.
+Newsletter e formulário de mensagem não enviam nem armazenam dados. O contato
+funcional é o formulário externo do Tally. As contagens de seguidores em `/links`
+são ilustrativas. Não há backend ou integração automática com redes sociais.
 
 ## Referências
 
-- Estrutura visual: https://linx.framer.website/
-- Fundo animado: https://magicui.design/docs/components/flickering-grid
+- Portfólio: https://artifact.framer.ai/
+- Links: https://linx.framer.website/
+- Componentes: https://ui.shadcn.com/
+- Rolagem: https://github.com/darkroomengineering/lenis
+- Fundo de links: https://magicui.design/docs/components/flickering-grid
