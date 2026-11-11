@@ -4,6 +4,7 @@ import { contact } from '../data/works'
 import avatar from '../assets/avatar.jpg'
 import { HeaderMenu } from './header-menu'
 import { BottomBlur } from './bottom-blur'
+import { LocalStatus } from './local-status'
 import '../Home.css'
 export function Subscribe() {
   const [notice, setNotice] = useState(false)
@@ -74,18 +75,25 @@ export function Header() {
 }
 export function Footer() {
   return (
-    <footer className="artifact-footer">
+    <footer className="artifact-footer" id="newsletter">
       <div>
         <h2>
-          Ideias e aprendizados.
+          Minhas últimas novidades.
           <br />
           <span>Direto no seu e-mail.</span>
         </h2>
         <Subscribe />
-        <p>
-          © {new Date().getFullYear()} Ivan Passos &nbsp; · &nbsp; Empreendedor
-          &amp; Criativo &nbsp; · &nbsp; <a href="/links">Todos os links</a>
-        </p>
+        <div className="artifact-footer-meta">
+          <LocalStatus city="SP" timeZone="America/Sao_Paulo" />
+          <span aria-hidden="true">·</span>
+          <a role="link" aria-disabled="true" tabIndex={0}>
+            Políticas de Privacidade
+          </a>
+          <span aria-hidden="true">·</span>
+          <a role="link" aria-disabled="true" tabIndex={0}>
+            Termos de Uso
+          </a>
+        </div>
       </div>
     </footer>
   )

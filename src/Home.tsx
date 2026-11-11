@@ -1,24 +1,19 @@
-import {
-  RiArrowRightUpLine,
-  RiArrowRightLine,
-  RiSparklingLine,
-  RiLink,
-} from '@remixicon/react'
-import { software, socials } from './data/profile'
-import { contact } from './data/works'
-import avatar from './assets/avatar.jpg'
+import { RiArrowRightLine, RiSparklingLine } from '@remixicon/react'
+import { software } from './data/profile'
+import { contact, recentWorks } from './data/works'
+import { drops } from './data/drops'
 import './Home.css'
-import { Layout } from './components/site-layout'
-import { WorkCards, ProductPlaceholder } from './components/work-cards'
+import { Layout, Subscribe } from './components/site-layout'
+import { WorkCards } from './components/work-cards'
 export default function Home() {
   return (
     <Layout>
       <main className="artifact-main">
         <section className="artifact-hero">
           <h1>
-            Design e engenharia
+            Ideias ganham forma.
             <br />
-            para experiências digitais.
+            Design e código dão vida.
           </h1>
           <div className="artifact-actions">
             {[
@@ -27,10 +22,7 @@ export default function Home() {
               ['Conexões', 'Todos os meus links', '/links'],
             ].map(([label, text, url]) => (
               <a href={url} key={label}>
-                <span>
-                  {label}
-                  <RiArrowRightUpLine aria-hidden="true" />
-                </span>
+                <span>{label}</span>
                 <strong>{text}</strong>
               </a>
             ))}
@@ -40,61 +32,46 @@ export default function Home() {
           <div
             className="artifact-slideshow"
             role="img"
-            aria-label="Espaço para imagem de destaque"
+            aria-label="Espaço para imagem da newsletter Loops"
           />
           <div className="artifact-feature-copy">
-            <a className="artifact-tag upcoming" href="/works/porto-seguros">
-              Em destaque <RiSparklingLine aria-hidden="true" />
-            </a>
+            <span className="artifact-tag upcoming">
+              Drop a newsletter <RiSparklingLine aria-hidden="true" />
+            </span>
             <h2>
-              Porto Seguros.
+              Loops.
               <br />
-              <span>Explore o projeto.</span>
+              <span>Ideias que merecem circular.</span>
             </h2>
-            <a className="artifact-button" href="/works/porto-seguros">
-              Ver projeto <RiArrowRightUpLine aria-hidden="true" />
-            </a>
-            <div className="artifact-scoop">
-              <span className="artifact-tag">
-                Conecte-se <RiLink aria-hidden="true" />
-              </span>
+            <Subscribe />
+            <div className="artifact-scoop artifact-drops">
+              <a className="artifact-tag" href="/drops">
+                Últimos drops
+              </a>
               <div>
-                {socials.map(({ name, href, icon: Icon }) => (
-                  <a href={href} key={name}>
-                    <Icon aria-hidden="true" />
-                    {name}
-                    <RiArrowRightUpLine aria-hidden="true" />
+                {drops.map(({ title, slug }) => (
+                  <a
+                    className="artifact-drop-badge"
+                    href={`/drops/${slug}`}
+                    key={slug}
+                  >
+                    {title}
                   </a>
-                ))}
+                ))}{' '}
               </div>
             </div>
           </div>
         </section>
         <section className="artifact-section">
           <h2>
-            <a href="/works">
-              Meus projetos <RiArrowRightLine aria-hidden="true" />
-            </a>
+            <a href="/works">Projetos recentes</a>
           </h2>
-          <WorkCards limit={3} />
+          <WorkCards works={recentWorks} limit={3} />
         </section>
         <section className="artifact-about">
           <h2>
-            Sou{' '}
-            <a className="artifact-person" href="/links">
-              <span className="artifact-person-icon">
-                <img
-                  src={avatar}
-                  alt=""
-                  width={24}
-                  height={24}
-                  loading="lazy"
-                />
-              </span>
-              Ivan Passos
-            </a>
-            , empreendedor e criativo. Meu trabalho conecta{' '}
-            <a href="/services">UX/UI Design</a>,{' '}
+            Sou <a href="/links">Ivan Passos</a>, empreendedor e criativo. Meu
+            trabalho conecta <a href="/services">UX/UI Design</a>,{' '}
             <a href="/services">Engenharia de Software</a> e{' '}
             <a href="/services">Design Systems</a> para construir experiências
             digitais.
@@ -109,16 +86,15 @@ export default function Home() {
         <section className="artifact-section">
           <h2>
             <a href="/products">
-              Produtos e criações <RiArrowRightLine aria-hidden="true" />
+              Produtos recentes <RiArrowRightLine aria-hidden="true" />
             </a>
           </h2>
-          <div className="artifact-three">
-            <ProductPlaceholder />
-          </div>
+          <p className="artifact-coming-soon">Em breve</p>
         </section>
         <section
           className="artifact-section artifact-stack-section"
           id="ferramentas"
+          hidden
         >
           <h2>Ferramentas que uso</h2>
           <div className="artifact-stack">

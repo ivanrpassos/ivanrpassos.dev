@@ -1,23 +1,35 @@
-import { RiArrowRightUpLine, RiShoppingBagLine } from '@remixicon/react'
+import { RiShoppingBagLine } from '@remixicon/react'
 import { workDetails } from '../data/works'
-export function WorkCards({ limit }: { limit?: number }) {
+export function WorkCards({
+  limit,
+  works = workDetails,
+}: {
+  limit?: number
+  works?: typeof workDetails
+}) {
   return (
     <div className="artifact-three">
-      {workDetails.slice(0, limit).map((work) => (
+      {works.slice(0, limit).map((work) => (
         <a href={'/works/' + work.slug} key={work.slug}>
           <div className="artifact-image" />
           <div className="artifact-work-caption">
-            <span>
-              <RiArrowRightUpLine aria-hidden="true" /> {work.name}
-            </span>
+            <span>{work.name}</span>
             <small>{work.category}</small>
           </div>
-          {work.preview && (
-            <small className="artifact-case-caption">Case demonstrativo</small>
-          )}
         </a>
       ))}
     </div>
+  )
+}
+export function LoopsCard() {
+  return (
+    <a className="artifact-product" href="#newsletter">
+      <header>Newsletter</header>
+      <div className="artifact-image" />
+      <p>
+        Loops <small>Por Ivan Passos</small>
+      </p>
+    </a>
   )
 }
 export function ProductPlaceholder() {

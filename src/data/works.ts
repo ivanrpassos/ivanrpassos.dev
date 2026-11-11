@@ -119,3 +119,8 @@ workDetails.push({
   ],
   images: 4,
 })
+
+// Most recent projects, in the order confirmed by Ivan.
+export const recentWorks = ['ulox', 'codaitech', 'zeeva'].flatMap((slug) =>
+  workDetails.filter((work) => work.slug === slug),
+)
