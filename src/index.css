@@ -78,6 +78,11 @@ button:focus-visible {
   outline: 2px solid var(--neutral-400);
   outline-offset: 4px;
 }
+/* Joined input/button controls should not outline the input independently. */
+:is(.artifact-form, .newsletter-form) input:focus {
+  outline: none;
+  box-shadow: none;
+}
 svg {
   width: 20px;
   height: 20px;
