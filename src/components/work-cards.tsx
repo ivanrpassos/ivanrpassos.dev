@@ -21,17 +21,6 @@ export function WorkCards({
     </div>
   )
 }
-export function LoopsCard() {
-  return (
-    <a className="artifact-product" href="#newsletter">
-      <header>Newsletter</header>
-      <div className="artifact-image" />
-      <p>
-        Loops <small>Por Ivan Passos</small>
-      </p>
-    </a>
-  )
-}
 export function ProductPlaceholder() {
   return (
     <article className="artifact-product">
