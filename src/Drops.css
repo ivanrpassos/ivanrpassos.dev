@@ -1,0 +1,62 @@
+.drops-list {
+  margin-top: 16px;
+}
+.drops-list a,
+.drops-related a {
+  display: block;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--a-border);
+  color: var(--a-muted);
+  font-size: 18px;
+  line-height: 26px;
+  transition: color 160ms ease;
+}
+.drops-list a:first-child {
+  border-top: 1px solid var(--a-border);
+}
+.drops-list a:hover,
+.drops-related a:hover {
+  color: var(--a-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.drops-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 64px;
+  color: var(--a-muted);
+}
+.drops-back + article .artifact-page-heading {
+  padding-top: 40px;
+}
+.drops-eyebrow {
+  display: block;
+  color: var(--a-muted);
+  margin-bottom: 16px;
+}
+.drops-prose {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.85;
+}
+.drops-prose p + p {
+  margin-top: 24px;
+}
+.drops-related {
+  margin-top: 64px;
+}
+.drops-related h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+@media (max-width: 600px) {
+  .drops-back {
+    margin-top: 40px;
+  }
+  .drops-list a,
+  .drops-related a {
+    font-size: 16px;
+  }
+}

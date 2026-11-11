@@ -111,6 +111,11 @@ export function HeaderMenu() {
           }}
         >
           <DropdownMenuItem asChild>
+            <a href="/drops">
+              Drops <RiLink aria-hidden="true" />
+            </a>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
             <a href="/links">
               Links <RiLink aria-hidden="true" />
             </a>
