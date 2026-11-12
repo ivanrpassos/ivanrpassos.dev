@@ -1,7 +1,7 @@
 // shadcn/ui composition adapted to the site's CSS tokens and Remix icons.
 import * as Primitive from '@radix-ui/react-accordion'
 import type { ComponentProps } from 'react'
-import { RiArrowDownSLine } from '@remixicon/react'
+import { ArrowDown01Icon } from '@/components/ui/icons'
 export const Accordion = Primitive.Root
 export const AccordionItem = Primitive.Item
 export function AccordionTrigger({
@@ -12,7 +12,7 @@ export function AccordionTrigger({
     <Primitive.Header>
       <Primitive.Trigger {...props}>
         {children}
-        <RiArrowDownSLine className="accordion-chevron" aria-hidden="true" />
+        <ArrowDown01Icon className="accordion-chevron" aria-hidden="true" />
       </Primitive.Trigger>
     </Primitive.Header>
   )

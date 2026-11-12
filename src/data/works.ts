@@ -3,7 +3,8 @@ export const contact = 'https://tally.so/r/2EGYpp'
 type Work = {
   slug: string
   name: string
-  category: string
+  services: string[]
+  special?: boolean
   url?: string
   description: string
   preview: boolean
@@ -88,11 +89,27 @@ const projects = [
   ],
 ] as const
 
+// Escopos confirmados por Ivan.
+const workServices: Record<string, string[]> = {
+  'porto-seguros': ['UX/UI Design', 'Engenharia de Software'],
+  zeeva: ['Desenvolvimento criativo'],
+  slicefair: ['UX/UI Design'],
+  cloudymos: ['Naming', 'Brand Design'],
+  codaitech: ['UX/UI Design'],
+  sinkle: ['UX/UI Design', 'Desenvolvimento'],
+  ulox: ['UX/UI Design', 'Desenvolvimento'],
+  zowe: ['UX/UI Design', 'Design System'],
+  myceo: ['UX/UI Design'],
+  signature12: ['UX/UI Design'],
+  'jornalista-concurseiro': ['UX/UI Design', 'Desenvolvimento'],
+}
+
 export const workDetails: Work[] = projects.map(
   ([slug, name, concept, description]) => ({
     slug,
     name,
-    category: 'Produto digital',
+    services: workServices[slug] ?? [],
+    special: slug === 'elefy',
     description: concept + '.',
     preview: true,
     paragraphs: [
@@ -108,7 +125,8 @@ export const workDetails: Work[] = projects.map(
 workDetails.push({
   slug: 'digisource',
   name: 'Digisource',
-  category: 'Projeto',
+  special: true,
+  services: [],
   url: 'https://digisource.io',
   description: 'Da organização da experiência à construção da interface.',
   preview: true,
@@ -123,4 +141,13 @@ workDetails.push({
 // Most recent projects, in the order confirmed by Ivan.
 export const recentWorks = ['ulox', 'codaitech', 'zeeva'].flatMap((slug) =>
   workDetails.filter((work) => work.slug === slug),
+)
+
+// Edit this list to change which projects stay pinned and their display order.
+export const featuredWorkSlugs = ['digisource', 'elefy', 'zeeva'] as const
+export const featuredWorks = featuredWorkSlugs.flatMap((slug) =>
+  workDetails.filter((work) => work.slug === slug),
+)
+export const otherWorks = workDetails.filter(
+  (work) => !featuredWorks.some((featured) => featured.slug === work.slug),
 )

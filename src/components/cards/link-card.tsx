@@ -1,5 +1,5 @@
-import { RiLink } from '@remixicon/react'
-type IconType = typeof RiLink
+import { Link01Icon } from '@/components/ui/icons'
+type IconType = typeof Link01Icon
 const external = { target: '_blank', rel: 'noopener noreferrer' } as const
 export function CardHeading({
   title,

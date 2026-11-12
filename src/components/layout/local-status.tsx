@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { RiMoonLine, RiSunLine } from '@remixicon/react'
+import { getLocalStatus } from '@/data/status'
 
 export function LocalStatus({
   city,
@@ -37,7 +37,7 @@ export function LocalStatus({
   )
   const time = formatter.format(now)
   const hour = Number(time.split(':')[0])
-  const resting = hour < 8 || hour >= 22
+  const status = getLocalStatus(hour)
 
   return (
     <>
@@ -45,12 +45,7 @@ export function LocalStatus({
         className="artifact-icon-label"
         title="Status automático de acordo com o horário local"
       >
-        {resting ? 'Descansando' : 'Por aqui'}
-        {resting ? (
-          <RiMoonLine aria-hidden="true" />
-        ) : (
-          <RiSunLine aria-hidden="true" />
-        )}
+        {status.label} <span aria-hidden="true">{status.emoji}</span>
       </span>
       <span aria-hidden="true">·</span>
       <span>

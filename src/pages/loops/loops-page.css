@@ -1,8 +1,8 @@
-.drops-list {
+.loops-list {
   margin-top: 16px;
 }
-.drops-list a,
-.drops-related a {
+.loops-list a,
+.loops-related a {
   display: block;
   padding: 16px 0;
   border-bottom: 1px solid var(--a-border);
@@ -11,52 +11,52 @@
   line-height: 26px;
   transition: color 160ms ease;
 }
-.drops-list a:first-child {
+.loops-list a:first-child {
   border-top: 1px solid var(--a-border);
 }
-.drops-list a:hover,
-.drops-related a:hover {
+.loops-list a:hover,
+.loops-related a:hover {
   color: var(--a-text);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
-.drops-back {
+.loops-back {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-top: 64px;
   color: var(--a-muted);
 }
-.drops-back + article .artifact-page-heading {
+.loops-back + article .artifact-page-heading {
   padding-top: 40px;
 }
-.drops-eyebrow {
+.loops-eyebrow {
   display: block;
   color: var(--a-muted);
   margin-bottom: 16px;
 }
-.drops-prose {
+.loops-prose {
   max-width: 640px;
   font-size: 17px;
   line-height: 1.85;
 }
-.drops-prose p + p {
+.loops-prose p + p {
   margin-top: 24px;
 }
-.drops-related {
+.loops-related {
   margin-top: 64px;
 }
-.drops-related h2 {
+.loops-related h2 {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 8px;
 }
 @media (max-width: 600px) {
-  .drops-back {
+  .loops-back {
     margin-top: 40px;
   }
-  .drops-list a,
-  .drops-related a {
+  .loops-list a,
+  .loops-related a {
     font-size: 16px;
   }
 }

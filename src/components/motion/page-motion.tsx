@@ -1,7 +1,7 @@
 import { useLayoutEffect } from 'react'
 import Lenis from 'lenis'
-import './lenis.css'
-import './page-motion.css'
+import '@/components/motion/lenis.css'
+import '@/components/motion/page-motion.css'
 
 // Animate independent blocks, never their containers as well.
 const targets = [

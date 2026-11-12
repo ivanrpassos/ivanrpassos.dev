@@ -1,5 +1,5 @@
 // Edições fictícias para apresentar o formato da newsletter.
-export const drops = [
+export const loops = [
   {
     slug: 'o-detalhe-que-muda-tudo',
     title: 'O detalhe que muda tudo',

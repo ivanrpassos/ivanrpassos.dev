@@ -1,6 +1,6 @@
 # Ivan Passos — Portfólio e links
 
-Site em React, TypeScript e Vite. As páginas são carregadas sob demanda.
+Site em React, TypeScript, Vite e Tailwind CSS 4. As páginas são carregadas sob demanda.
 
 ## Desenvolvimento
 
@@ -25,19 +25,51 @@ Em outras hospedagens, configure o mesmo fallback de rotas.
 
 ## Estrutura
 
-- `src/route.tsx`: seleção e carregamento das páginas.
-- `src/Home.tsx`: página inicial.
-- `src/Pages.tsx`: projetos, serviços e produtos.
-- `src/WorkDetail.tsx`: detalhes dos projetos.
-- `src/App.tsx`: página de links, em `/links`.
-- `src/components/site-layout.tsx`: cabeçalho, rodapé e newsletter compartilhados.
-- `src/components/work-cards.tsx`: cards reutilizáveis.
-- `src/components/ui/`: composições do shadcn/ui com Radix, adaptadas ao CSS existente.
-- `src/components/page-motion.tsx`: Lenis e reveal, com limpeza de efeitos e suporte a movimento reduzido.
-- `src/components/lenis.css`: estilos da versão 1.3.27; revisar ao atualizar Lenis.
-- `src/components/bottom-blur.tsx`: blur progressivo sem interceptar cliques.
-- `src/data/works.ts`: projetos, descrições e conteúdo demonstrativo.
-- `src/data/profile.ts`: redes sociais e ferramentas.
+```text
+src/
+  app/                  # Rotas e carregamento sob demanda
+  pages/                # Uma pasta por área do site
+    home/
+    links/
+    loops/
+    works/              # Listagem e detalhe de projeto
+    services/
+    products/
+  components/
+    layout/             # Cabeçalho, menu, rodapé, tema e status local
+    cards/              # Cards compartilhados
+    home/               # Componentes específicos da página inicial
+    motion/             # Lenis, animações de entrada e blur
+    magicui/            # Componentes adaptados do Magic UI
+    ui/                 # Primitivos Radix/shadcn
+  data/                 # Projetos, loops, perfil e redes sociais
+  styles/               # Tailwind, estilos globais e estilos compartilhados
+  assets/               # Imagens locais
+  main.tsx              # Inicialização do React
+```
+
+Os imports usam `@/`, que aponta para `src/` no Vite e no TypeScript.
+Estilos exclusivos ficam junto à página ou ao componente. Os estilos de layout
+compartilhados ficam em `styles/portfolio.css` e `styles/pages.css`.
+Projetos, Serviços e Produtos têm páginas próprias, sem condicionais em uma página genérica.
+
+## Tailwind e formatação
+
+O Tailwind 4 é compilado pelo plugin oficial `@tailwindcss/vite`.
+`src/styles/tailwind.css` carrega o tema e as utilities. O Preflight não está
+ativado nesta etapa: o reset existente é preservado para não alterar o visual.
+O CSS atual continua funcionando; a migração para utilities pode ser gradual.
+Regras CSS existentes fora de layers têm prioridade sobre utilities; ao migrar
+um componente, remova as declarações antigas equivalentes para evitar conflitos.
+
+`prettier-plugin-tailwindcss` ordena automaticamente as classes ao executar
+`bun run format`. O plugin aponta para o arquivo de entrada do Tailwind na
+`.prettierrc.json`. A extensão Prettier do editor também usa essa configuração.
+O marquee de marcas já utiliza utilities para a tipografia dos nomes.
+Use a variante `dark:` com o atributo `data-theme`, conforme o tema atual.
+
+As rotas `/loops` e `/blog` abrem a newsletter; `/loops/:slug` abre uma edição.
+Os endereços antigos `/drops` e `/drops/:slug` continuam funcionando como aliases.
 
 Os temas compartilham a preferência local `theme`. Os ícones são Remix Icon.
 A foto está em `src/assets/avatar.jpg`; o favicon em `public/favicon.svg`.
@@ -60,3 +92,4 @@ são ilustrativas. Não há backend ou integração automática com redes sociai
 - Componentes: https://ui.shadcn.com/
 - Rolagem: https://github.com/darkroomengineering/lenis
 - Fundo de links: https://magicui.design/docs/components/flickering-grid
+

@@ -1,24 +1,24 @@
 import { useState } from 'react'
 import {
-  RiLinkedinFill,
-  RiBehanceFill,
-  RiInstagramLine,
-  RiLink,
-  RiPaletteLine,
-  RiYoutubeLine,
-  RiChat3Line,
-  RiApps2Line,
-  RiExternalLinkLine,
-} from '@remixicon/react'
-import { socials, software } from './data/profile'
-import { CardHeading, LinkCard } from './components/link-card'
-import { ThemeControl } from './components/theme-control'
-import avatar from './assets/avatar.jpg'
-import { FlickeringGrid } from './components/magicui/flickering-grid'
-import './App.css'
+  LinkedinIcon,
+  BehanceIcon,
+  InstagramIcon,
+  Link01Icon,
+  PaintBoardIcon,
+  YoutubeIcon,
+  Message01Icon,
+  GridViewIcon,
+  ArrowUpRightIcon,
+} from '@/components/ui/icons'
+import { socials, software } from '@/data/profile'
+import { CardHeading, LinkCard } from '@/components/cards/link-card'
+import { ThemeControl } from '@/components/layout/theme-control'
+import avatar from '@/assets/avatar.jpg'
+import { FlickeringGrid } from '@/components/magicui/flickering-grid'
+import '@/pages/links/links-page.css'
 
 const external = { target: '_blank', rel: 'noopener noreferrer' } as const
-function App() {
+function LinksPage() {
   const [expanded, setExpanded] = useState(false)
   const [contactNotice, setContactNotice] = useState(false)
   const [newsletterNotice, setNewsletterNotice] = useState(false)
@@ -38,7 +38,7 @@ function App() {
             height={48}
           />
           <h1>Ivan Passos</h1>
-          <p>Empreendedor &amp; Criativo</p>
+          <p>Design, código e ideias em construção.</p>
           <nav className="social-links" aria-label="Redes sociais">
             {socials.map(({ name, count, href, icon: Icon }) => (
               <a
@@ -66,19 +66,19 @@ function App() {
             </span>
           </a>
           <LinkCard
-            title="Meu website"
-            description="Meu espaço na internet."
+            title="Meu site"
+            description="Projetos, serviços e um pouco da minha trajetória."
             href="https://ivanrpassos.dev"
-            icon={RiLink}
+            icon={Link01Icon}
           />
           <LinkCard
             title="Suaaave"
-            description="Meu espaço criativo."
+            description="Um espaço para explorar meu lado criativo."
             href="https://suaaave.com/@ivanrpassos"
-            icon={RiPaletteLine}
+            icon={PaintBoardIcon}
           />
           <section className="content-card video-card" aria-label="YouTube">
-            <CardHeading title="YouTube" icon={RiYoutubeLine} />
+            <CardHeading title="YouTube" icon={YoutubeIcon} />
             <div
               className="video-placeholder"
               role="img"
@@ -87,9 +87,9 @@ function App() {
           </section>
           <LinkCard
             title="Meu portfólio"
-            description="Meus projetos no Behance."
+            description="Veja meus trabalhos no Behance."
             href="https://www.behance.net/ivanrpassos"
-            icon={RiBehanceFill}
+            icon={BehanceIcon}
           />
           <a
             className="content-card instagram-card"
@@ -97,8 +97,8 @@ function App() {
             {...external}
           >
             <div className="instagram-heading">
-              <CardHeading title="No Instagram" icon={RiInstagramLine} />
-              <RiExternalLinkLine aria-hidden="true" />
+              <CardHeading title="No Instagram" icon={InstagramIcon} />
+              <ArrowUpRightIcon aria-hidden="true" />
             </div>
             <div className="instagram-strip" aria-hidden="true">
               {[0, 1, 2, 3].map((i) => (
@@ -107,7 +107,7 @@ function App() {
             </div>
           </a>
           <section className="content-card" aria-label="Deixe uma mensagem">
-            <CardHeading title="Deixe uma mensagem" icon={RiChat3Line} />
+            <CardHeading title="Deixe uma mensagem" icon={Message01Icon} />
             <form
               className="contact-form"
               onSubmit={(event) => {
@@ -135,7 +135,7 @@ function App() {
               <textarea
                 aria-label="Escreva sua mensagem"
                 name="message"
-                placeholder="Escreva sua mensagem..."
+                placeholder="O que você tem em mente?"
                 required
               />
               <button className="form-button" type="submit">
@@ -143,8 +143,8 @@ function App() {
               </button>
               {contactNotice && (
                 <p className="form-notice" role="status">
-                  O envio por aqui ainda não está disponível. Use o link “Vamos
-                  conversar?” abaixo.
+                  Sua mensagem não foi enviada. Por enquanto, fale comigo pelo
+                  link “Vamos conversar?” abaixo.
                 </p>
               )}
             </form>
@@ -153,11 +153,11 @@ function App() {
             className="content-card newsletter-card"
             aria-labelledby="newsletter-title"
           >
-            <h2 id="newsletter-title">Minha newsletter</h2>
+            <h2 id="newsletter-title">Loops</h2>
             <p>
-              Um espaço para compartilhar aprendizados.
+              Design, código e o que aprendo criando.
               <br />
-              Em breve.
+              Inscrições em breve. <a href="/loops">Leia as edições.</a>
             </p>
             <form
               className="newsletter-form"
@@ -178,13 +178,13 @@ function App() {
             </form>
             {newsletterNotice && (
               <p className="form-notice" role="status">
-                As inscrições ainda não estão disponíveis. Seu e-mail não foi
+                As inscrições ainda não estão abertas. Seu e-mail não foi
                 cadastrado.
               </p>
             )}
           </section>
           <section className="content-card" aria-label="Ferramentas que uso">
-            <CardHeading title="Ferramentas que uso" icon={RiApps2Line} />
+            <CardHeading title="Ferramentas que uso" icon={GridViewIcon} />
             <div id="software-list" className="software-list">
               {software
                 .slice(0, expanded ? software.length : 4)
@@ -216,16 +216,16 @@ function App() {
           </section>
           <LinkCard
             title="Minha trajetória"
-            description="Experiências e conexões no LinkedIn."
+            description="Conheça meu caminho profissional no LinkedIn."
             href="https://linkedin.com/in/ivanrpassos"
-            icon={RiLinkedinFill}
+            icon={LinkedinIcon}
           />
           <hr className="section-divider" />
           <LinkCard
             title="Vamos conversar?"
-            description="Uma ideia, um projeto ou só um oi."
+            description="Conte sua ideia, seu projeto ou mande um oi."
             href="https://tally.so/r/2EGYpp"
-            icon={RiChat3Line}
+            icon={Message01Icon}
           />
         </div>
         <footer className="template-footer">
@@ -237,11 +237,11 @@ function App() {
       <ThemeControl />
       <aside className="template-badges" aria-label="Links de contato">
         <a href="https://tally.so/r/2EGYpp" {...external}>
-          <RiChat3Line aria-hidden="true" />
+          <Message01Icon aria-hidden="true" />
           Vamos conversar?
         </a>
       </aside>
     </>
   )
 }
-export default App
+export default LinksPage

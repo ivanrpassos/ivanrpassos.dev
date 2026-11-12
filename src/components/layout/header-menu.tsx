@@ -1,13 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
-import { RiMore2Fill, RiMoonLine, RiSunLine, RiLink } from '@remixicon/react'
-import './header-menu.css'
+import {
+  Mail01Icon,
+  MoreVerticalIcon,
+  MoonIcon,
+  Sun01Icon,
+  Link01Icon,
+} from '@/components/ui/icons'
+import '@/components/layout/header-menu.css'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from './ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 
 export function HeaderMenu() {
   const [open, setOpen] = useState(false)
@@ -93,7 +99,7 @@ export function HeaderMenu() {
               cancelClose()
             }}
           >
-            <RiMore2Fill aria-hidden="true" />
+            <MoreVerticalIcon aria-hidden="true" />
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -111,13 +117,13 @@ export function HeaderMenu() {
           }}
         >
           <DropdownMenuItem asChild>
-            <a href="/drops">
-              Drops <RiLink aria-hidden="true" />
+            <a href="/loops">
+              Loops <Mail01Icon aria-hidden="true" />
             </a>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <a href="/links">
-              Links <RiLink aria-hidden="true" />
+              Links <Link01Icon aria-hidden="true" />
             </a>
           </DropdownMenuItem>
           <DropdownMenuSeparator className="header-menu-separator" />
@@ -132,9 +138,9 @@ export function HeaderMenu() {
           >
             Alternar tema{' '}
             {dark ? (
-              <RiMoonLine aria-hidden="true" />
+              <MoonIcon aria-hidden="true" />
             ) : (
-              <RiSunLine aria-hidden="true" />
+              <Sun01Icon aria-hidden="true" />
             )}
           </DropdownMenuItem>
         </DropdownMenuContent>

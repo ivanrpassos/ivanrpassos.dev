@@ -1,4 +1,4 @@
-import './bottom-blur.css'
+import '@/components/motion/bottom-blur.css'
 
 // Progressive blur measured from the reference: 100px, eight overlapping masks.
 export function BottomBlur() {

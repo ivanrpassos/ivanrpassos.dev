@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { RiComputerLine, RiMoonLine, RiSunLine } from '@remixicon/react'
+import { ComputerIcon, MoonIcon, Sun01Icon } from '@/components/ui/icons'
 type Theme = 'system' | 'light' | 'dark'
 const themes = [
-  { value: 'system', label: 'Tema do dispositivo', icon: RiComputerLine },
-  { value: 'light', label: 'Tema claro', icon: RiSunLine },
-  { value: 'dark', label: 'Tema escuro', icon: RiMoonLine },
+  { value: 'system', label: 'Tema do dispositivo', icon: ComputerIcon },
+  { value: 'light', label: 'Tema claro', icon: Sun01Icon },
+  { value: 'dark', label: 'Tema escuro', icon: MoonIcon },
 ] as const
 
 export function ThemeControl() {

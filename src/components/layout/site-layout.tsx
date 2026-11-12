@@ -1,11 +1,10 @@
 import { useId, useState, type ReactNode } from 'react'
-import { RiArrowRightUpLine } from '@remixicon/react'
-import { contact } from '../data/works'
-import avatar from '../assets/avatar.jpg'
-import { HeaderMenu } from './header-menu'
-import { BottomBlur } from './bottom-blur'
-import { LocalStatus } from './local-status'
-import '../Home.css'
+import { contact } from '@/data/works'
+import avatar from '@/assets/avatar.jpg'
+import { HeaderMenu } from '@/components/layout/header-menu'
+import { BottomBlur } from '@/components/motion/bottom-blur'
+import { LocalStatus } from '@/components/layout/local-status'
+import '@/styles/portfolio.css'
 export function Subscribe() {
   const [notice, setNotice] = useState(false)
   const noticeId = useId()
@@ -13,7 +12,7 @@ export function Subscribe() {
     <div className="artifact-newsletter">
       <form
         className="artifact-form"
-        aria-label="Inscrição na newsletter"
+        aria-label="Inscrição no Loops"
         onSubmit={(event) => {
           event.preventDefault()
           setNotice(true)
@@ -32,8 +31,7 @@ export function Subscribe() {
       </form>
       {notice && (
         <p className="artifact-newsletter-notice" id={noticeId} role="status">
-          As inscrições estarão disponíveis em breve. Seu e-mail ainda não foi
-          cadastrado.
+          As inscrições ainda não estão abertas. Seu e-mail não foi cadastrado.
         </p>
       )}
     </div>
@@ -67,7 +65,7 @@ export function Header() {
         ))}
         <HeaderMenu />
         <a className="artifact-email" href={contact}>
-          Contato <RiArrowRightUpLine aria-hidden="true" />
+          Vamos conversar?
         </a>
       </nav>
     </header>
@@ -78,9 +76,9 @@ export function Footer() {
     <footer className="artifact-footer" id="newsletter">
       <div>
         <h2>
-          Minhas últimas novidades.
+          Loops: o que aprendo criando.
           <br />
-          <span>Direto no seu e-mail.</span>
+          <span>Design, código e ideias para explorar.</span>
         </h2>
         <Subscribe />
         <div className="artifact-footer-meta">
