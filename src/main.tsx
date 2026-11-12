@@ -4,11 +4,11 @@ import { PageMotion } from '@/components/motion/page-motion'
 import '@/styles/tailwind.css'
 import '@/styles/globals.css'
 import { Route } from '@/app/routes'
-import { PageSkeleton } from '@/components/layout/page-skeleton'
+import { LoadingFallback } from '@/components/layout/loading-fallback'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Suspense fallback={<PageSkeleton />}>
+    <Suspense fallback={<LoadingFallback />}>
       <Route />
       <PageMotion />
     </Suspense>

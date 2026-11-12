@@ -1,36 +1,12 @@
 import { lazy } from 'react'
 
-const MINIMUM_SKELETON_MS = 1000
-
-async function withMinimumLoadingTime<T>(loading: Promise<T>): Promise<T> {
-  const [module] = await Promise.all([
-    loading,
-    new Promise<void>((resolve) => setTimeout(resolve, MINIMUM_SKELETON_MS)),
-  ])
-  return module
-}
-
-const Links = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/links/links-page')),
-)
-const Home = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/home/home-page')),
-)
-const Services = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/services/services-page')),
-)
-const Works = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/works/works-page')),
-)
-const Products = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/products/products-page')),
-)
-const WorkDetail = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/works/work-detail-page')),
-)
-const Loops = lazy(() =>
-  withMinimumLoadingTime(import('@/pages/loops/loops-page')),
-)
+const Links = lazy(() => import('@/pages/links/links-page'))
+const Home = lazy(() => import('@/pages/home/home-page'))
+const Services = lazy(() => import('@/pages/services/services-page'))
+const Works = lazy(() => import('@/pages/works/works-page'))
+const Products = lazy(() => import('@/pages/products/products-page'))
+const WorkDetail = lazy(() => import('@/pages/works/work-detail-page'))
+const Loops = lazy(() => import('@/pages/loops/loops-page'))
 
 const path = window.location.pathname.replace(/\/$/, '')
 
