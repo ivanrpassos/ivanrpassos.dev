@@ -7,10 +7,9 @@ import {
   PaintBoardIcon,
   YoutubeIcon,
   Message01Icon,
-  GridViewIcon,
   ArrowUpRightIcon,
 } from '@/components/ui/icons'
-import { socials, software } from '@/data/profile'
+import { socials } from '@/data/profile'
 import { CardHeading, LinkCard } from '@/components/cards/link-card'
 import { ThemeControl } from '@/components/layout/theme-control'
 import avatar from '@/assets/avatar.jpg'
@@ -19,7 +18,6 @@ import '@/pages/links/links-page.css'
 
 const external = { target: '_blank', rel: 'noopener noreferrer' } as const
 function LinksPage() {
-  const [expanded, setExpanded] = useState(false)
   const [contactNotice, setContactNotice] = useState(false)
   const [newsletterNotice, setNewsletterNotice] = useState(false)
   return (
@@ -183,37 +181,7 @@ function LinksPage() {
               </p>
             )}
           </section>
-          <section className="content-card" aria-label="Ferramentas que uso">
-            <CardHeading title="Ferramentas que uso" icon={GridViewIcon} />
-            <div id="software-list" className="software-list">
-              {software
-                .slice(0, expanded ? software.length : 4)
-                .map(({ icon: Icon, ...item }) => (
-                  <a key={item.name} href={item.href} {...external}>
-                    <span className="software-logo" aria-hidden="true">
-                      <Icon />
-                    </span>
-                    <span>
-                      <strong>{item.name}</strong>
-                      <span className="software-category">
-                        {' '}
-                        · {item.category}
-                      </span>
-                    </span>
-                  </a>
-                ))}
-            </div>
-            {software.length > 4 && (
-              <button
-                className="form-button"
-                aria-expanded={expanded}
-                aria-controls="software-list"
-                onClick={() => setExpanded(!expanded)}
-              >
-                {expanded ? 'Mostrar menos' : 'Mostrar mais'}
-              </button>
-            )}
-          </section>
+
           <LinkCard
             title="Minha trajetória"
             description="Conheça meu caminho profissional no LinkedIn."
