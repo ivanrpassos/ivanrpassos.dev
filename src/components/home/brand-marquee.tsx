@@ -10,7 +10,7 @@ export function BrandMarquee() {
       <Marquee data-paused={paused}>
         {workDetails.map(({ slug, name }) => (
           <span
-            className="text-[22px] font-normal whitespace-nowrap text-(--a-muted)"
+            className="text-[22px] font-semibold whitespace-nowrap text-(--a-muted)"
             key={slug}
           >
             {name}

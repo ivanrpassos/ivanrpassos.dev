@@ -16,6 +16,7 @@ export function FlickeringGrid() {
     const squareSize = 2
     const maxOpacity = 0.55
     const flickerChance = 0.3
+    let visible = false
     let frame = 0
     let lastTime = 0
     let width = 0
@@ -76,7 +77,7 @@ export function FlickeringGrid() {
     const syncAnimation = () => {
       cancelAnimationFrame(frame)
       draw()
-      if (!motion.matches && !document.hidden) {
+      if (visible && !motion.matches && !document.hidden) {
         lastTime = performance.now()
         frame = requestAnimationFrame(animate)
       }
@@ -84,6 +85,11 @@ export function FlickeringGrid() {
     updateColor()
     resize()
     syncAnimation()
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting
+      syncAnimation()
+    })
+    visibilityObserver.observe(canvas)
     const resizeObserver = new ResizeObserver(resize)
     resizeObserver.observe(canvas)
     const themeObserver = new MutationObserver(updateColor)
@@ -93,15 +99,14 @@ export function FlickeringGrid() {
     })
     motion.addEventListener('change', syncAnimation)
     document.addEventListener('visibilitychange', syncAnimation)
-    window.addEventListener('resize', resize)
 
     return () => {
       cancelAnimationFrame(frame)
       resizeObserver.disconnect()
+      visibilityObserver.disconnect()
       themeObserver.disconnect()
       motion.removeEventListener('change', syncAnimation)
       document.removeEventListener('visibilitychange', syncAnimation)
-      window.removeEventListener('resize', resize)
     }
   }, [])
 

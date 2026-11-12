@@ -1,3 +1,7 @@
+.artifact-loops-page .artifact-page-heading h1,
+.artifact-loops-page .artifact-page-heading p {
+  font-weight: 500;
+}
 .loops-list {
   margin-top: 16px;
 }
@@ -8,6 +12,8 @@
   border-bottom: 1px solid var(--a-border);
   color: var(--a-muted);
   font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
   line-height: 26px;
   transition: color 160ms ease;
 }

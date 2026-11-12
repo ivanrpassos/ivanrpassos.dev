@@ -21,7 +21,7 @@ function LinksPage() {
   const [contactNotice, setContactNotice] = useState(false)
   const [newsletterNotice, setNewsletterNotice] = useState(false)
   return (
-    <>
+    <div className="links-page">
       <FlickeringGrid />
       <a className="skip-link" href="#links">
         Pular para o conteúdo
@@ -209,7 +209,7 @@ function LinksPage() {
           Vamos conversar?
         </a>
       </aside>
-    </>
+    </div>
   )
 }
 export default LinksPage

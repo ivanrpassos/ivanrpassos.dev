@@ -53,7 +53,7 @@ const projects = [
   ],
   [
     'sinkle',
-    'Sinkle',
+    'Sinkle Co.',
     'Menos atrito na navegação',
     'Uma proposta de simplificação de fluxos, com ações claras e feedback em cada etapa da experiência.',
   ],
@@ -91,12 +91,13 @@ const projects = [
 
 // Escopos confirmados por Ivan.
 const workServices: Record<string, string[]> = {
-  'porto-seguros': ['UX/UI Design', 'Engenharia de Software'],
-  zeeva: ['Desenvolvimento criativo'],
+  'porto-seguros': ['UX/UI Design', 'Engenharia de Software', 'Design System'],
+  zeeva: ['Co-fundador'],
+  elefy: ['Estratégia de Marca'],
   slicefair: ['UX/UI Design'],
   cloudymos: ['Naming', 'Brand Design'],
   codaitech: ['UX/UI Design'],
-  sinkle: ['UX/UI Design', 'Desenvolvimento'],
+  sinkle: ['Estratégia de Marca'],
   ulox: ['UX/UI Design', 'Desenvolvimento'],
   zowe: ['UX/UI Design', 'Design System'],
   myceo: ['UX/UI Design'],
@@ -109,7 +110,7 @@ export const workDetails: Work[] = projects.map(
     slug,
     name,
     services: workServices[slug] ?? [],
-    special: slug === 'elefy',
+    special: false,
     description: concept + '.',
     preview: true,
     paragraphs: [
@@ -125,8 +126,8 @@ export const workDetails: Work[] = projects.map(
 workDetails.push({
   slug: 'digisource',
   name: 'Digisource',
-  special: true,
-  services: [],
+  special: false,
+  services: ['Estratégia de Marca'],
   url: 'https://digisource.io',
   description: 'Da organização da experiência à construção da interface.',
   preview: true,

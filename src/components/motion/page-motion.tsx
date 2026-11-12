@@ -5,7 +5,12 @@ import '@/components/motion/page-motion.css'
 
 // Animate independent blocks, never their containers as well.
 const targets = [
-  '.artifact-hero > h1',
+  '.artifact-intro-cover',
+  '.artifact-intro-bio',
+  '.artifact-brands',
+  '.loops-list > a',
+  '.loops-prose > p',
+  '.loops-related',
   '.artifact-actions > a',
   '.artifact-feature',
   '.artifact-section > h2',
@@ -29,6 +34,7 @@ const targets = [
 
 export function PageMotion() {
   useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
     let dispose = () => {}
     const setup = () => {

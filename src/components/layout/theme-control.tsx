@@ -1,3 +1,4 @@
+import '@/components/layout/theme-control.css'
 import { useEffect, useState } from 'react'
 import { ComputerIcon, MoonIcon, Sun01Icon } from '@/components/ui/icons'
 type Theme = 'system' | 'light' | 'dark'
@@ -7,7 +8,7 @@ const themes = [
   { value: 'dark', label: 'Tema escuro', icon: MoonIcon },
 ] as const
 
-export function ThemeControl() {
+function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     try {
       const saved = localStorage.getItem('theme')
@@ -35,6 +36,11 @@ export function ThemeControl() {
     media.addEventListener('change', apply)
     return () => media.removeEventListener('change', apply)
   }, [theme])
+  return { theme, setTheme }
+}
+
+export function ThemeControl() {
+  const { theme, setTheme } = useTheme()
   return (
     <div className="theme-control" role="group" aria-label="Escolher tema">
       {themes.map(({ value, label, icon: Icon }) => (

@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/accordion'
 import {
   Layout01Icon,
+  PaintBoardIcon,
   CodeIcon,
   ServerIcon,
   GridIcon,
@@ -15,16 +16,20 @@ import { Layout } from '@/components/layout/site-layout'
 
 import { contact } from '@/data/works'
 import '@/styles/pages.css'
-import avatar from '@/assets/avatar.jpg'
 const services = [
   [
+    'Estratégia de Marca',
+    'Toda marca tem algo a dizer. Ajudo a encontrar seu posicionamento, entender seu público e construir uma mensagem que traduza o valor do negócio e dê direção às próximas decisões.',
+    PaintBoardIcon,
+  ],
+  [
     'UX/UI Design',
-    'Organizo jornadas e desenho interfaces para que cada pessoa entenda onde está, o que pode fazer e qual é o próximo passo.',
+    'Transformo necessidades de pessoas e negócios em experiências claras. Desenho jornadas e interfaces que facilitam escolhas e tornam o produto mais simples de usar.',
     Layout01Icon,
   ],
   [
     'Engenharia de Software',
-    'Transformo interfaces e regras de negócio em aplicações, com atenção ao funcionamento do produto e à evolução do código.',
+    'Tiro ideias do papel com aplicações que conectam design e tecnologia. Construo uma base sólida para o produto funcionar bem hoje e acompanhar os próximos passos do negócio.',
     CodeIcon,
   ],
   [
@@ -41,11 +46,11 @@ const services = [
 const questions = [
   [
     'Como você pode ajudar meu projeto?',
-    'Posso ajudar no desenho da experiência, no desenvolvimento da aplicação, na organização de um design system ou na manutenção da hospedagem. O ponto de partida é entender o momento do seu produto.',
+    'Da estratégia da marca à experiência e ao desenvolvimento do produto, ajudo a conectar as decisões do negócio. Começamos entendendo seu momento, seu público e o que você quer alcançar.',
   ],
   [
     'Você trabalha com criação de marcas?',
-    'Não ofereço criação de marcas. Minha atuação é no design e no desenvolvimento de produtos digitais.',
+    'Sim, atuo com estratégia de marca: posicionamento, público e mensagem. Esse trabalho dá direção à forma como o negócio se apresenta e se conecta com as pessoas. Conversamos sobre o escopo para definir o que sua marca precisa.',
   ],
   [
     'O que preciso enviar para começar?',
@@ -63,7 +68,8 @@ export default function ServicesPage() {
         <section className="artifact-page-heading">
           <h1>Serviços</h1>
           <p>
-            Da experiência à implementação, cuidado em cada etapa do produto.
+            Da estratégia de marca ao produto em uso, ideias com direção e
+            execução.
           </p>
         </section>
         <div className="artifact-services-grid">
@@ -100,7 +106,7 @@ export default function ServicesPage() {
             <aside className="artifact-chat">
               <img
                 className="artifact-image artifact-portrait"
-                src={avatar}
+                src="/images/hero/ivan-passos.jpg"
                 alt="Ivan Passos"
                 width={208}
                 height={117}

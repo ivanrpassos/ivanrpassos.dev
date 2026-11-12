@@ -4,7 +4,9 @@ import avatar from '@/assets/avatar.jpg'
 import { HeaderMenu } from '@/components/layout/header-menu'
 import { BottomBlur } from '@/components/motion/bottom-blur'
 import { LocalStatus } from '@/components/layout/local-status'
+import { FlickeringGrid } from '@/components/magicui/flickering-grid'
 import '@/styles/portfolio.css'
+import { ThemeControl } from '@/components/layout/theme-control'
 export function Subscribe() {
   const [notice, setNotice] = useState(false)
   const noticeId = useId()
@@ -74,6 +76,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="artifact-footer" id="newsletter">
+      <FlickeringGrid />
       <div>
         <h2>
           Loops: o que aprendo criando.
@@ -103,6 +106,7 @@ export function Layout({ children }: { children: ReactNode }) {
       {children}
       <Footer />
       <BottomBlur />
+      <ThemeControl />
     </div>
   )
 }

@@ -1,25 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
-import {
-  Mail01Icon,
-  MoreVerticalIcon,
-  MoonIcon,
-  Sun01Icon,
-  Link01Icon,
-} from '@/components/ui/icons'
+import { Mail01Icon, MoreVerticalIcon, Link01Icon } from '@/components/ui/icons'
 import '@/components/layout/header-menu.css'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu'
 
 export function HeaderMenu() {
   const [open, setOpen] = useState(false)
-  const [dark, setDark] = useState(
-    () => document.documentElement.dataset.theme === 'dark',
-  )
   const hover = useRef(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
@@ -32,44 +22,6 @@ export function HeaderMenu() {
     }, 160)
   }
   useEffect(() => () => clearTimeout(closeTimer.current), [])
-  useEffect(() => {
-    const sync = () =>
-      setDark(document.documentElement.dataset.theme === 'dark')
-    const observer = new MutationObserver(sync)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    })
-    const media = matchMedia('(prefers-color-scheme: dark)')
-    const followSystem = () => {
-      try {
-        if (['light', 'dark'].includes(localStorage.getItem('theme') || ''))
-          return
-      } catch {
-        /* Use device preference when storage is unavailable. */
-      }
-      document.documentElement.dataset.theme = media.matches ? 'dark' : 'light'
-    }
-    media.addEventListener('change', followSystem)
-    return () => {
-      observer.disconnect()
-      media.removeEventListener('change', followSystem)
-    }
-  }, [])
-  const toggleTheme = () => {
-    const next =
-      document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'
-    document.documentElement.dataset.theme = next
-    document
-      .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', next === 'dark' ? '#0a0a0a' : '#ffffff')
-    try {
-      localStorage.setItem('theme', next)
-    } catch {
-      /* Keep switching available without storage. */
-    }
-    setDark(next === 'dark')
-  }
   return (
     <div className="header-more">
       <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
@@ -125,23 +77,6 @@ export function HeaderMenu() {
             <a href="/links">
               Links <Link01Icon aria-hidden="true" />
             </a>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator className="header-menu-separator" />
-          <DropdownMenuItem
-            onSelect={(event) => {
-              event.preventDefault()
-              toggleTheme()
-            }}
-            aria-label={
-              dark ? 'Alternar para tema claro' : 'Alternar para tema escuro'
-            }
-          >
-            Alternar tema{' '}
-            {dark ? (
-              <MoonIcon aria-hidden="true" />
-            ) : (
-              <Sun01Icon aria-hidden="true" />
-            )}
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -1,0 +1,45 @@
+.theme-control {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: inline-flex;
+  padding: 4px;
+  border-radius: 24px;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  z-index: 10;
+}
+.theme-control button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  width: 32px;
+  height: 30px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+}
+.theme-control button[aria-pressed='true'] {
+  background: var(--panel);
+  color: var(--text);
+}
+.theme-control svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 520px) {
+  .theme-control {
+    left: 12px;
+    bottom: 12px;
+  }
+}
+
+.theme-control button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.theme-control button:hover {
+  color: var(--text);
+}

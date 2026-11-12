@@ -28,16 +28,7 @@ export default function WorksPage() {
           </section>
         )}
         {visibleWorks.length > 0 && (
-          <section
-            className="works-collection"
-            aria-labelledby="other-works-heading"
-          >
-            <div className="works-collection-heading">
-              <h2 id="other-works-heading">
-                {showFeaturedWorks ? 'Mais projetos' : 'Todos os projetos'}
-              </h2>
-              <span>{visibleWorks.length} projetos</span>
-            </div>
+          <section className="works-collection" aria-label="Projetos">
             <WorkCards works={visibleWorks} />
           </section>
         )}
