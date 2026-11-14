@@ -3,6 +3,11 @@ import { PauseIcon, PlayIcon } from '@/components/ui/icons'
 import { workDetails } from '@/data/works'
 import { Marquee } from '@/components/magicui/marquee'
 
+
+const brandSizes: Record<string, { width: number; height: number }> = {
+  slicefair: { width: 148, height: 28 },
+}
+
 export function BrandMarquee() {
   const [paused, setPaused] = useState(false)
   return (
@@ -13,14 +18,26 @@ export function BrandMarquee() {
             className="text-[22px] font-semibold whitespace-nowrap text-(--a-muted)"
             key={slug}
           >
-            {name}
+            {brandSizes[slug] ? (
+              <span
+                role="img"
+                aria-label={name}
+                className="block bg-current"
+                style={{
+                  ...brandSizes[slug],
+                  mask: `url(/images/brands/${slug}.svg) center / contain no-repeat`,
+                }}
+              />
+            ) : (
+              name
+            )}
           </span>
         ))}
       </Marquee>
       <button
         className="artifact-brands-toggle"
         type="button"
-        onClick={() => setPaused(!paused)}
+        onClick={() => setPaused((current) => !current)}
         aria-label={
           paused
             ? 'Retomar movimento das marcas'
@@ -36,3 +53,4 @@ export function BrandMarquee() {
     </section>
   )
 }
+
