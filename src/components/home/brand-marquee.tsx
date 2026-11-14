@@ -9,6 +9,7 @@ const brandSizes: Record<string, { width: number; height: number }> = {
   slicefair: { width: 148, height: 28 },
   sinkle: { width: 109, height: 24 },
   ulox: { width: 98, height: 24 },
+  zowe: { width: 121.6, height: 32 },
 }
 
 export function BrandMarquee() {
