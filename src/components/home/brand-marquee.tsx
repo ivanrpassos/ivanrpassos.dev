@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { PauseIcon, PlayIcon } from '@/components/ui/icons'
 import { workDetails } from '@/data/works'
 import { Marquee } from '@/components/magicui/marquee'
-
+import './brand-marquee.css'
 
 const brandSizes: Record<string, { width: number; height: number }> = {
   'porto-seguros': { width: 122.5, height: 28 },
@@ -21,7 +21,9 @@ export function BrandMarquee() {
             className="text-[22px] font-semibold whitespace-nowrap text-(--a-muted)"
             key={slug}
           >
-            {brandSizes[slug] ? (
+            {slug === 'digisource' ? (
+              <span className="brand-digisource" role="img" aria-label={name} />
+            ) : brandSizes[slug] ? (
               <span
                 role="img"
                 aria-label={name}

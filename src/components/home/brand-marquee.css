@@ -1,0 +1,11 @@
+.brand-digisource {
+  display: block;
+  width: 165px;
+  height: 28px;
+  background: url('/images/brands/digisource-light.svg') center / contain
+    no-repeat;
+}
+
+:root[data-theme='dark'] .brand-digisource {
+  background-image: url('/images/brands/digisource-dark.svg');
+}
