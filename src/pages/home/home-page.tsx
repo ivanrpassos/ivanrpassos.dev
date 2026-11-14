@@ -7,30 +7,13 @@ import '@/styles/portfolio.css'
 import { Layout, Subscribe } from '@/components/layout/site-layout'
 import { WorkCards } from '@/components/cards/work-cards'
 
-const heroPhotos = {
-  principal: {
-    src: '/images/hero/ivan-passos.jpg',
-    position: '50% 32%',
-    alt: 'Ivan Passos de camisa preta, sentado em um sofá',
-  },
-  'evento-1': {
-    src: '/images/hero/ivan-passos-evento-1.jpg',
-    position: '50% 25%',
-    alt: 'Ivan Passos com um microfone durante um evento',
-  },
-  'evento-2': {
-    src: '/images/hero/ivan-passos-evento-2.jpg',
-    position: '50% 22%',
-    alt: 'Ivan Passos participando de uma conversa em um evento',
-  },
+const photo = {
+  src: '/images/hero/ivan-passos.jpg',
+  position: '50% 32%',
+  alt: 'Ivan Passos de camisa preta, sentado em um sofá',
 }
 
 export default function Home() {
-  const previewPhoto = import.meta.env.DEV
-    ? new URLSearchParams(window.location.search).get('foto')
-    : null
-  const photo =
-    heroPhotos[previewPhoto as keyof typeof heroPhotos] ?? heroPhotos.principal
   return (
     <Layout>
       <main className="artifact-main">
