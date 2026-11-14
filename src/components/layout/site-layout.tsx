@@ -57,6 +57,7 @@ export function Header() {
         ].map(([url, title]) => (
           <a
             key={url}
+            className="header-primary-link"
             href={url}
             aria-current={
               window.location.pathname.startsWith(url) ? 'page' : undefined

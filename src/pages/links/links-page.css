@@ -363,7 +363,16 @@
   }
 
   @media (max-width: 520px) {
+    .form-row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    input,
+    textarea {
+      font-size: 16px;
+    }
     .profile {
+      width: calc(100% - 32px);
+      padding-inline: 16px;
       margin: 40px auto 100px;
     }
     .social-links {
@@ -373,7 +382,7 @@
       padding: 8px 10px;
     }
     .newsletter-card {
-      padding: 32px 20px;
+      padding: 24px 12px;
     }
     .template-badges {
       right: 12px;

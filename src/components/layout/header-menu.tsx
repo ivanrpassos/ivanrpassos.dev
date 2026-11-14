@@ -31,7 +31,10 @@ export function HeaderMenu() {
             type="button"
             aria-label="Mais opções"
             onPointerEnter={(event) => {
-              if (event.pointerType === 'mouse') {
+              if (
+                event.pointerType === 'mouse' &&
+                window.matchMedia('(min-width: 601px)').matches
+              ) {
                 cancelClose()
                 hover.current = true
                 setOpen(true)
@@ -40,10 +43,8 @@ export function HeaderMenu() {
             onPointerLeave={scheduleClose}
             onPointerDown={(event) => {
               if (event.button === 0) {
-                event.preventDefault()
                 cancelClose()
                 hover.current = false
-                setOpen(true)
               }
             }}
             onKeyDown={() => {
@@ -68,6 +69,23 @@ export function HeaderMenu() {
             if (hover.current) event.preventDefault()
           }}
         >
+          {[
+            ['/works', 'Projetos'],
+            ['/services', 'Serviços'],
+            ['/products', 'Produtos'],
+          ].map(([href, label]) => (
+            <DropdownMenuItem asChild key={href}>
+              <a
+                className="header-mobile-link"
+                href={href}
+                aria-current={
+                  window.location.pathname.startsWith(href) ? 'page' : undefined
+                }
+              >
+                {label}
+              </a>
+            </DropdownMenuItem>
+          ))}
           <DropdownMenuItem asChild>
             <a href="/loops">
               Loops <Mail01Icon aria-hidden="true" />

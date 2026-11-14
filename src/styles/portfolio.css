@@ -254,6 +254,7 @@
   background: var(--a-bg);
 }
 .artifact-feature-copy {
+  min-width: 0;
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -361,7 +362,7 @@
 }
 .artifact-three {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 .artifact-image {
@@ -371,6 +372,8 @@
 }
 .artifact-work-caption {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
   margin-top: 12px;
@@ -565,7 +568,7 @@
     margin-right: 24px;
   }
   .artifact-feature {
-    grid-template-columns: 45% 55%;
+    grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
   }
   .artifact-feature-copy {
     padding: 24px;
@@ -577,7 +580,60 @@
     white-space: normal;
   }
 }
+@media (min-width: 601px) and (max-width: 850px) {
+  .artifact-three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 600px) {
+  .artifact-header nav,
+  .artifact-main,
+  .artifact-footer > div {
+    margin-inline: clamp(16px, 4vw, 24px);
+  }
+  .artifact .artifact-email {
+    justify-content: center;
+  }
+  .artifact-intro-cover {
+    aspect-ratio: 4 / 3;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  .artifact-intro-socials a {
+    width: 44px;
+    height: 44px;
+  }
+  .artifact-intro-name {
+    font-size: 16px;
+  }
+  .artifact-intro-bio h1 {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  .artifact-brands-toggle {
+    width: 44px;
+    height: 44px;
+  }
+  .artifact-form input {
+    font-size: 16px;
+  }
+  .artifact-form button {
+    min-height: 44px;
+    flex-shrink: 0;
+  }
+  .artifact-footer {
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  }
+  .artifact-footer-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .artifact-footer-meta > [aria-hidden] {
+    display: none;
+  }
   .artifact-header nav {
     gap: 16px;
   }
@@ -598,10 +654,11 @@
     width: 100%;
   }
   .artifact-feature {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .artifact-slideshow {
-    height: 360px;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
   .artifact-feature-copy {
     padding: 28px 20px;
@@ -768,6 +825,7 @@
 }
 
 .artifact-newsletter {
+  width: 100%;
   max-width: 360px;
 }
 .artifact-newsletter .artifact-newsletter-notice {

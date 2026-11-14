@@ -32,7 +32,11 @@
 @media (max-width: 520px) {
   .theme-control {
     left: 12px;
-    bottom: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .theme-control button {
+    width: 44px;
+    height: 44px;
   }
 }
 

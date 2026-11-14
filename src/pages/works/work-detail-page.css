@@ -73,6 +73,9 @@
   .artifact-detail-gallery > div {
     border-radius: 10px;
   }
+  .artifact-detail-cover {
+    margin-inline: clamp(16px, 4vw, 24px);
+  }
   .artifact-detail-more {
     margin-bottom: 64px;
   }

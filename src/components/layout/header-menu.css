@@ -52,6 +52,25 @@
   height: 1px;
   background: var(--a-border);
 }
+.header-more-panel .header-mobile-link {
+  display: none;
+}
+@media (max-width: 600px) {
+  .artifact-header .header-primary-link {
+    display: none;
+  }
+  .header-more-panel .header-mobile-link {
+    display: flex;
+  }
+  .header-more-trigger {
+    width: 44px;
+    height: 44px;
+  }
+  .header-more-panel [aria-current='page'] {
+    color: var(--a-text);
+    background: var(--a-card);
+  }
+}
 @keyframes menu-in {
   from {
     opacity: 0;
