@@ -7,6 +7,7 @@ import { Marquee } from '@/components/magicui/marquee'
 const brandSizes: Record<string, { width: number; height: number }> = {
   slicefair: { width: 148, height: 28 },
   sinkle: { width: 109, height: 24 },
+  ulox: { width: 98, height: 24 },
 }
 
 export function BrandMarquee() {
